@@ -21,7 +21,6 @@ function dateSample(sampleActivity) {
   // Convert sampleActivity to a number
   const activity = parseFloat(sampleActivity);
 
-  // Check if the input is a valid number and within the appropriate range
   if (
     isNaN(activity) ||
     typeof sampleActivity !== "string" ||
@@ -31,12 +30,10 @@ function dateSample(sampleActivity) {
     return false;
   }
 
-  // Calculate the age using the radioactive decay formula
   const age = Math.ceil(
     Math.log(MODERN_ACTIVITY / activity) / (0.693 / HALF_LIFE_PERIOD)
   );
 
-  // Check if the calculated age is a valid positive number
   if (isNaN(age) || age <= 0) {
     return false;
   }

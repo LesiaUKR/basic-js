@@ -37,18 +37,13 @@ const { NotImplementedError } = require("../extensions/index.js");
 function getCommonCharacterCount(s1, s2) {
   let commonCharacters = 0;
   let newSetS1 = [...new Set(s1)];
-  console.log(newSetS1);
-  for (const char of [...new Set(s1)]) {
-    console.log("char", char);
-    console.log("s1.split(char) ", s1.split(char));
-    console.log(
-      (commonCharacters += Math.min(
-        s1.split(char).length - 1,
-        s2.split(char).length - 1
-      ))
+
+  for (const char of newSetS1) {
+    commonCharacters += Math.min(
+      s1.split(char).length - 1,
+      s2.split(char).length - 1
     );
   }
-  console.log("commonCharacters", commonCharacters);
   return commonCharacters;
 }
 
