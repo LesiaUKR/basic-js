@@ -21,7 +21,7 @@ function repeater(str, options) {
     separator = "+",
     addition = "",
     additionRepeatTimes = 1,
-    additionSeparator = "",
+    additionSeparator = "|",
   } = options;
 
   let newString = "";
@@ -41,15 +41,6 @@ function repeater(str, options) {
   return newString;
 }
 
-// console.log(
-//   repeater("STRING", {
-//     repeatTimes: 3,
-//     separator: "**",
-//     addition: "PLUS",
-//     additionRepeatTimes: 3,
-//     additionSeparator: "00",
-//   })
-// );
 console.log(
   repeater("REPEATABLE_STRING", {
     repeatTimes: 2,
