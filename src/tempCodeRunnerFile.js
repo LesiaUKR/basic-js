@@ -1,24 +1,15 @@
-function getMatrixElementsSum(matrix) {
-  let sum = 0;
-  for (let i = 0; i < matrix.length; i++) {
-    console.log("matrix[i]", matrix[i]);
-    for (let j = 0; j < matrix[i].length; j++) {
-console.log("j",j);
-console.log("i",i);
-      if (i === 0 || matrix[i - 1][j] !== 0) {
-        console.log("matrix[i][j]", matrix[i][j]);
-console.log("matrix[i][j]", matrix[i][j]);
-        sum += matrix[i][j];
+class DepthCalculator {
+  calculateDepth(arr) {
+    let depth = 1;
+
+    for (const element of arr) {
+      if (Array.isArray(element)) {
+        const nestedDepth = this.calculateDepth(element) + 1;
+        depth = Math.max(depth, nestedDepth);
       }
     }
+       return depth;
   }
-
-  return sum;
 }
-console.log(
-  getMatrixElementsSum([
-    [0, 1, 1, 2],
-    [0, 5, 0, 0],
-    [2, 0, 3, 3],
-  ])
-);
+const depthCalc = new DepthCalculator();
+console.log(depthCalc.calculateDepth([1, 2, 3, [4, 5]]));
